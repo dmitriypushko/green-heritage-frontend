@@ -1,0 +1,130 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid #f0f0f0;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border-color: var(--color-accent-green);
+    }
+  
+    .imageWrapper {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background-color: #f9f9f9;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease; // Это магия: картинка заполнит блок, не растягиваясь
+      }
+    }
+
+.card:hover .imageWrapper img {
+      transform: scale(1.08); // Эффект приближения при наведении
+    }
+
+    .info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+  
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #2c3e50;
+        font-weight: 600;
+      }
+  
+      .latin {
+        margin: 0;
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 10px;
+      }
+  
+      .price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-primary-green);
+        margin-top: auto;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+.main_button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #003625; // Более темный при наведении
+  }
+}
+.cardLink {
+  text-decoration: none; // Убираем подчеркивание
+  color: inherit;       // Наследуем цвет текста
+  display: block;       // Чтобы ссылка занимала всю область карточки
+}
+
+.inCart{
+  color:rgb(224, 245, 246);
+}
+
+.actionWrapper {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.quantityCounter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f3f2; // Светло-серый приятный фон
+  border-radius: 6px;
+  overflow: hidden;
+  height: 40px; // Высота как у твоей стандартной кнопки
+  width: 100%;
+}
+
+.counterBtn {
+  background: none;
+  border: none;
+  color: #2d3a34; // Тёмно-зеленый или графитовый цвет
+  font-size: 1.4rem;
+  font-weight: 600;
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #e2e6e4; // Чуть темнее при наведении
+  }
+}
+
+.quantityNumber {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3a34;
+  user-select: none; // Чтобы текст не выделялся синим при частых кликах
+}

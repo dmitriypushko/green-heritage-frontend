@@ -1,0 +1,41 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F3D2E"/>
+      <stop offset="1" stop-color="#1F6B4F"/>
+    </linearGradient>
+
+    <linearGradient id="tree" x1="128" y1="36" x2="128" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ED081"/>
+      <stop offset="1" stop-color="#2F7A46"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+
+  <!-- Stylized rare conifer silhouette -->
+  <path d="M128 34
+           L162 82
+           H145
+           L182 128
+           H156
+           L196 182
+           H146
+           V214
+           H110
+           V182
+           H60
+           L100 128
+           H74
+           L111 82
+           H94
+           Z"
+        fill="url(#tree)"/>
+
+  <!-- Trunk -->
+  <rect x="116" y="180" width="24" height="40" rx="6" fill="#5B3A29"/>
+
+  <!-- Heritage ring -->
+  <circle cx="128" cy="128" r="92" stroke="#CFEBC5" stroke-width="8" opacity="0.9"/>
+</svg>

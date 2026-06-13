@@ -1,0 +1,310 @@
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.mainContent {
+  display: flex; 
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.imageBlock {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+}
+
+/* --- ПРАВАЯ КОЛОНКА (ИНФОРМАЦИЯ) --- */
+
+.infoBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 24px;
+
+  .categoryBadge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--color-primary-green);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .latinName {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #666;
+  }
+}
+
+.purchaseAction {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.priceTag {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0; // Сбрасываем старый отступ
+
+  .amount {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primary-green);
+  }
+
+  .currency {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #666;
+  }
+}
+
+.addToCartBtn {
+  flex-grow: 1;
+  max-width: 300px;
+  padding: 18px 32px;
+  background-color: var(--color-primary-green);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: #003625; // Твой глубокий темный ховер
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 54, 37, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Тонкая стильная линия-разделитель между покупкой и описанием
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #eaeaea;
+  margin: 20px 0 30px 0;
+}
+
+/* --- ОПИСАНИЕ (ТВОЙ ИСПРАВЛЕННЫЙ ВАРИАНТ) --- */
+
+.descriptionBlock {
+  max-width: 100%; 
+  margin-top: 10px;
+
+  h3 {
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.6rem;
+    color: var(--color-primary-green);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+
+  p {
+    font-family: 'Inter', 'Montserrat', sans-serif; 
+    font-size: 1.25rem; 
+    line-height: 1.7; 
+    color: #4a4a4a; 
+    font-weight: 600;
+    text-align: left; 
+    
+    &:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-primary-green);
+    }
+  }
+}
+
+/* --- ВСПОМОГАТЕЛЬНЫЕ ЭЛЕМЕНТЫ --- */
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 50px; 
+  color: #666;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+
+  &:hover {
+    background-color: #f5f5f5;
+    border-color: var(--color-primary-green); 
+    color: var(--color-primary-green);
+    transform: translateX(-5px); 
+  }
+}
+
+.mainImageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+  .mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.thumbnails {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.activeThumb {
+    border-color: var(--color-primary-green); 
+    transform: scale(1.05);
+  }
+}
+
+.paragraph {
+  font-family: 'Inter', 'Montserrat', sans-serif; 
+  font-size: 1.25rem; // Вот твои идеальные +20%! (5rem убирай, а то будет гигантский)
+  line-height: 1.7; 
+  color: #4a4a4a; 
+  font-weight: 400;
+  text-align: left; 
+
+  // Буквица для самого первого абзаца
+  &:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-primary-green);
+  }
+}
+
+&.inCart {
+  background-color: #f0f4f1; // Спокойный, почти белый цвет с зеленым отливом
+  color: #2d5a27; // Благородный темно-зеленый текст
+  border: 1px solid #d1e2d3; // Тонкая аккуратная рамочка
+  cursor: default; // Меняем курсор, так как кликать больше не нужно
+  box-shadow: none; // Убираем тени
+
+  &:hover {
+    background-color: #f0f4f1; // Отменяем темный ховер
+    transform: none; // Отменяем прыжок кнопки вверх
+    box-shadow: none;
+  }
+}
+
+// Добавь в конец файла или внутрь класса .infoBlock (смотря какая у тебя вложенность)
+
+.featuresBadgeBlock {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0; // мягкая внутренняя линия раздела
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.redBookBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #fdf2f2; // Нежно-красный фон
+  color: #9b1c1c;           // Темно-красный благородный текст
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  width: fit-content;
+  border: 1px solid #fbd5d5;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.featureRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.featureLabel {
+  font-weight: 600;
+  color: #2d3748; // Темно-серый
+}
+
+.featureValue {
+  color: #4a5568; // Чуть мягче для самого значения
+}
+
+// Анимация для красивого появления плашки
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

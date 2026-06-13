@@ -1,0 +1,298 @@
+.footer_container {
+  background-color: #ffffff; 
+  padding: 60px 0 0 0;
+  position: relative;
+  overflow: hidden; 
+  width: 100%;
+}
+
+/* --- ВЕРХНЯЯ ПЛАШКА ПРЕИМУЩЕСТВ (footer_up_lay) --- */
+.footer_up_lay {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 40px 30px;
+  background-color: #f5f2eb; 
+  border-radius: 16px;
+  border: 1px solid #eae6dc;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  position: relative;
+  z-index: 3; 
+
+  .one_b, .two_b, .tre_b, .fou_b {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    border-right: 1px solid #e3ded2; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    &:last-child {
+      border-right: none; 
+    }
+
+    /* Стилизуем контейнер под новые иконки Lucide */
+    .image {
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px; // Фиксируем высоту, чтобы блоки не прыгали
+      
+      .icon {
+        color: var(--color-primary-green); // Включаем твой благородный зеленый!
+        stroke-width: 1.5; // Тонкие, премиальные линии
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+    }
+
+    /* Исправляем цвет заголовков (убираем дефолтный черный) */
+    .h_3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--color-primary-green); // Делаем заголовки тоже фирменными зелеными!
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    /* Описание преимуществ */
+    .ppp {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Интерактивный эффект: при наведении на ЛЮБУЮ часть колонки */
+    &:hover {
+      .icon {
+        transform: scale(1.12); // Иконка мягко увеличивается
+        color: #003625; // И становится глубокой темно-зеленой
+      }
+      .h_3 {
+        color: #003625; // Заголовок тоже откликается на ховер
+      }
+    }
+  }
+}
+
+/* --- НИЖНЯЯ СЕКЦИЯ (footer_down_lay) --- */
+.footer_down_lay {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  z-index: 2; 
+
+  /* Блок 1: Логотип, описание, соцсети */
+  .block_1 {
+    flex: 1.5;
+    max-width: 360px;
+
+    .logo {
+      height: 75px; 
+      width: auto;
+      margin-bottom: 20px;
+      object-fit: contain;
+    }
+
+    p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .social_media {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 15px; // Отступ от текста описания
+    }
+    
+    .socialLink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%; // Идеальный круг
+      border: 1px solid #e2e2e0; // Тонкая серая рамка
+      color: #666666; // Спокойный цвет иконки
+      transition: all 0.2s ease-in-out;
+    
+      &:hover {
+        color: #1b4332; // Твой фирменный зеленый цвет при наведении
+        border-color: #1b4332;
+        background-color: #f4f6f4; // Легкий фоновый блик
+        transform: translateY(-2px); // Эффект легкого приподнимания
+      }
+    }
+    
+    
+  }
+
+  /* Блок 2: Кнопочки с информацией */
+  .block_2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // align-items: center; <-- ❌ УБИРАЕМ ОТСЮДА, чтобы блок стоял жестко на месте
+    gap: 12px;
+    max-width: 220px;
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--color-primary-green);
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-align: center; // 🔥 ДОБАВЛЯЕМ СЮДА! Текст встанет ровно по центру кнопок
+    }
+
+    .but_foot {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #333;
+      background-color: transparent;
+      border: 1px solid #c2bcaf; 
+      border-radius: 10px; 
+      padding: 5px 5px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.25s ease;
+      text-decoration: none !important;
+
+      &:hover {
+        color: var(--color-primary-green);
+        border-color: var(--color-primary-green);
+        background-color: #ffffff; 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        transform: translateY(-1px); 
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* Блок 3: Контакты */
+  .block_3 {
+    flex: 1;
+       
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--color-primary-green);
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-align: left; // Возвращаем выравнивание по левому краю
+      margin-left: 30px;
+    }
+
+    .contact_info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      
+      
+
+      p {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        color: #444;
+        margin: 0;
+        
+        &:first-child {
+          font-weight: 600; 
+          color: var(--color-primary-green);
+        }
+      }
+    }
+  }
+
+  /* Блок 4: Большая Секвойя справа */
+  .block_4 {
+    position: absolute;
+    right: -40px; 
+    bottom: -40px; 
+    z-index: 1; 
+    pointer-events: none; 
+
+    img {
+      height: 380px; 
+      width: auto;
+      object-fit: contain;
+      opacity: 0.95;
+    }
+  }
+}
+
+/* --- АДАПТИВ ДЛЯ МОБИЛОК (768px) --- */
+@media (max-width: 768px) {
+  .footer_up_lay {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+    margin: 0 20px 40px 20px;
+
+    .one_b, .two_b, .tre_b, .fou_b {
+      border-right: none;
+      border-bottom: 1px solid #e3ded2;
+      padding-bottom: 20px;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .footer_down_lay {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 30px;
+
+    .block_1, .block_2, .block_3 {
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    .block_2 {
+      max-width: 260px; 
+    }
+
+    .block_4 {
+      display: none; 
+    }
+  }
+}
+
+.copyrightBar {
+  width: 100%;
+  margin-top: 40px; // Отступ от основного контента футера
+  padding: 15px 0; // Внутренний отступ полосы
+  text-align: center; // Текст по центру
+  border-top: 1px solid #e2e2e0; // Тонкая серая разделительная линия
+  background-color: #f7f7f5; // Чуть более серый/темный фон, чем у основного футера
+
+  p {
+    margin: 0;
+    font-size: 13px; // Мелкий шрифт
+    color: #888888; // Ненавязчивый серый цвет
+    font-weight: 400;
+  }
+}

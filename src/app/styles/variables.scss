@@ -1,0 +1,14 @@
+:root {
+    /* Основные цвета из макета */
+    --color-primary-green: #2d3e2f;    /* Темный хвойный для кнопок и футера */
+    --color-accent-green: #4a634d;     /* Более светлый оттенок зеленого */
+    --color-bg-beige: #f9f7f2;         /* Мягкий бежевый фон страницы */
+    --color-text-main: #1a1a1a;        /* Почти черный для заголовков */
+    --color-text-secondary: #555555;   /* Серый для описаний */
+    --color-white: #ffffff;
+    
+    /* Шрифты (если есть возможность подключить с засечками для заголовков) */
+    --font-header: 'Playfair Display', serif; /* Или любой системный с засечками */
+    --font-main: 'Inter', sans-serif;
+  }
+  

@@ -1,0 +1,37 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; // Круглая кнопка
+    background-color: rgba(255, 255, 255, 0.8); // Полупрозрачный белый фон
+    border: 1px solid #e2e2e0; // Твоя фирменная серая граница
+    color: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); // Легкая тень, чтобы кнопка "парила"
+    z-index: 999; // Гарантируем, что кнопка будет поверх футера и секвойи
+    
+    // Начальное состояние: кнопка скрыта и смещена вниз
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+  
+    // Класс, который добавляется при скролле
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  
+    &:hover {
+      color: #1b4332; // Фирменный хвойный зеленый при наведении
+      border-color: #1b4332;
+      background-color: #ffffff; // Делаем полностью непрозрачной при наведении
+      transform: scale(1.05); // Легкое микро-увеличение
+    }
+  }

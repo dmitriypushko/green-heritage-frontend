@@ -1,0 +1,238 @@
+{
+    "header": {
+      "cart": "Cart",
+      "clearCart": "Clear cart",
+      "allTrees": "All trees"
+    },
+    "catalog": {
+      "searchPlaceholder": "🔍 Find a plant (e.g., Cedar)...",
+      "sortDefault": "Default",
+      "sortPriceLow": "Price: low to high",
+      "sortPriceHigh": "Price: high to low",
+      "sortName": "Name (A-Z)",
+      "currency": "UAH",
+      "addToCart": "Add to cart",
+      "coniferous": "Coniferous trees",
+      "deciduous": "Deciduous trees"
+    },
+    "reviews": {
+    "successTitle": "Thank you for your review!",
+    "successText": "It has been sent for moderation and will appear on the website as soon as the photo is verified by a dendrologist.",
+    "leaveAnother": "Leave another one",
+    "formTitle": "Share your \"Green Heritage\"",
+    "formSubtitle": "Tell us how the tree arrived and how it took root in your garden",
+    "labelName": "Your name",
+    "labelRating": "Your rating",
+    "labelComment": "Comment",
+    "placeholderComment": "For example: Wollemia arrived in perfect condition, packed super securely...",
+    "labelPhotos": "Photos of your garden (up to 5)",
+    "filesSelected": "Files selected",
+    "choosePhotos": "Choose juicy photos",
+    "submitting": "Sending...",
+    "submitBtn": "Submit for moderation"
+  },
+  "common": {
+    "back": "Back"
+  },
+ "articles": {
+  "title": "Articles & Useful Materials",
+  "intro": "Here we share the secrets of growing rare conifers, stories of their origin, and care tips.",
+  "readMore": "Read more →",
+  "loading": "Searching for scrolls of wisdom in the backend archives... 🌲",
+  "error": "Oops, failed to load articles. But the plantation is still growing! 🌱",
+  "empty": "Articles are still being translated for this locale. Check back later!"
+},
+  "cart": {
+    "backToCatalog": "Return to catalog",
+    "pageTitle": "Your Cart",
+    "emptyText": "Your cart is empty, like a forest in winter...",
+    "goToCatalogBtn": "Go to choosing trees",
+    "pcs": "pcs.",
+    "currency": "UAH",
+    "checkoutBtn": "Checkout",
+    "clearAllBtn": "Clear all",
+    "backToEditBtn": "← Back to changing cart",
+    "total": "Total: {{price}} UAH",
+    "toPay": "To pay: {{price}} UAH",
+    "success": {
+      "title": "Order placed successfully!",
+      "text": "Thank you for your trust. We have already received a notification in Telegram and started preparing your seedlings.",
+      "orderLabel": "Your order number:",
+      "nextSteps": "The nursery manager will contact you within 15 minutes to confirm the details.",
+      "footerText": "All the best!",
+      "brand": "Your \"Green Heritage\"",
+      "returnBtn": "Return to catalog"
+    }
+  },
+  "order": {
+    "formTitle": "Delivery Data",
+    "labelName": "Your first and last name",
+    "placeholderName": "John A. Smith",
+    "labelPhone": "Contact phone",
+    "labelCity": "Delivery city (Nova Poshta)",
+    "placeholderCity": "Start typing city...",
+    "labelWarehouse": "Branch",
+    "selectCityFirst": "Select a city first...",
+    "loadingWarehouses": "Loading branches...",
+    "paymentGroupLabel": "Payment method",
+    "paymentCodTitle": "Cash on delivery",
+    "paymentCodDesc": "Payment upon receipt at the Nova Poshta branch",
+    "paymentCardTitle": "Prepayment to card",
+    "paymentCardDesc": "Card details will be sent by the manager",
+    "termsText1": "I agree to the terms of the",
+    "termsLinkOffer": "Public Offer",
+    "termsText2": "and",
+    "termsLinkPrivacy": "Privacy Policy",
+    "savingBtn": "Saving to database...",
+    "submitBtn": "Confirm order"
+  },
+  "deliveryPage": {
+    "title": "Delivery and Payment",
+    "deliveryTitle": "Delivery",
+    "deliveryText1": "We deliver our exotic coniferous plants throughout Ukraine via the Nova Poshta service.",
+    "deliveryText2": "Each tree is carefully packed in special containers that protect the root system and branches from damage during transportation.",
+    "paymentTitle": "Payment",
+    "paymentText": "You can choose any convenient payment method when placing your order:",
+    "codDesc": "payment upon receipt at the Nova Poshta branch.",
+    "cardDesc": "card details will be sent by the manager via Telegram after order confirmation."
+  },
+  "detailPage": {
+    "lostInForest": "The plant got lost in the forest",
+    "returnHome": "Return home",
+    "backToCatalog": "Back to catalog",
+    "inCart": "In cart",
+    "addToCart": "Add to cart",
+    "redBook": "Listed in the Red Book",
+    "soil": "Soil",
+    "hardiness": "Hardiness",
+    "zone": "Zone {{zone}}",
+    "careTitle": "Features & Care",
+    "noDescription": "Description is temporarily unavailable.",
+    "reviewsTitle": "Plant reviews ({{count}})",
+    "noReviews": "There are no reviews for this plant yet. Be the first to share your opinion! 😊"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "date": "Last updated: May 19, 2026",
+    "section1": {
+      "title": "1. What data we collect",
+      "intro": "When placing an order on the",
+      "introEnd": "website, we request the following data from you:",
+      "bullet1": "First and last name — to identify the recipient of the package;",
+      "bullet2": "Contact phone number — to confirm the order and send an SMS with the tracking number;",
+      "bullet3": "City and branch number of 'Nova Poshta' — to carry out delivery."
+    },
+    "section2": {
+      "title": "2. Purposes of data processing",
+      "intro": "Your personal data is used exclusively for:",
+      "bullet1": "Processing, assembling, and shipping your order;",
+      "bullet2": "Informing you about the delivery status;",
+      "bullet3": "The manager contacting you to confirm the details."
+    },
+    "section3": {
+      "title": "3. Data transfer to third parties",
+      "text": "We transfer your data (Name, Phone, City, Branch) exclusively to the logistics service 'Nova Poshta' for generating an express waybill. We guarantee that your data is not transferred to third-party marketing agencies and third parties not involved in the order fulfillment process."
+    },
+    "section4": {
+      "title": "4. Data protection",
+      "text": "All data is transmitted via the secure HTTPS protocol and stored in a private backend database (Strapi), accessible only to a limited circle of store administrators."
+    }
+  },
+  "offer": {
+    "title": "Public Offer (Sales Agreement)",
+    "date": "Publication date: May 19, 2026",
+    "section1": {
+      "title": "1. General Provisions",
+      "p1_start": "1.1. This agreement is an official offer (public offer) of the online store",
+      "p1_end": "«Green Heritage» (hereinafter — «Seller») to any individual or legal entity (hereinafter — «Buyer») that accepts these terms and conditions and places an order on the website.",
+      "p2": "1.2. The moment of full and unconditional acceptance of the Seller's offer by the Buyer (acceptance of the offer) is considered to be clicking the 'Confirm order' button on the checkout page."
+    },
+    "section2": {
+      "title": "2. Subject of the Agreement",
+      "p1": "2.1. The Seller undertakes to transfer ownership of the goods (plants, seedlings, trees, and related goods) to the Buyer, and the Buyer undertakes to pay for and accept the Goods under the terms of this Agreement."
+    },
+    "section3": {
+      "title": "3. Ordering and Delivery",
+      "p1": "3.1. Ordering Goods is carried out by the Buyer through the online store service.",
+      "p2": "3.2. Delivery of Goods is carried out throughout Ukraine by the logistics company 'Nova Poshta' at the carrier's rates.",
+      "p3": "3.3. The Seller is not responsible for delivery delays caused by the fault of the carrier."
+    },
+    "section4": {
+      "title": "4. Returns and Exchanges",
+      "p1": "4.1. According to Ukrainian legislation, live plants of proper quality are not subject to exchange and return. However, the Seller guarantees the high quality of the planting material and is ready to consider individual cases of damage during transportation if the claim is made at the moment of receipt at the 'Nova Poshta' branch."
+    },
+    "section5": {
+      "title": "5. Seller's Details",
+      "shopLabel": "Online Store:",
+      "emailLabel": "Contact Email:",
+      "phoneLabel": "Phone:",
+      "legalInfo": "Sole Proprietorship / Legal Entity (enter your data here)"
+    }
+  },
+"services": {
+    "title": "Our Services",
+    "intro": "«Green Heritage» is more than just a store. We help you create a lasting green legacy on your plot.",
+    "service1": {
+      "title": "Design of Arboretum Parks and Commercial Plantations",
+      "desc": "Our specialists visit the site and conduct soil analysis. We can design a forest-garden, an arboretum, a commercial plantation of valuable species (mahogany), or, for example, a plantation not for timber, but for harvesting pine nuts. We will calculate profitability. This is truly something you can pass down as a legacy to your children, so they can start not from scratch, but with a ready-made foundation. Please, think about it. By caring for the legacy of your children, you are also doing good for all other people and planet Earth as a whole!"
+    },
+    "service2": {
+      "title": "Landscape Design",
+      "desc": "Creation of unique coniferous compositions, rockeries, and evergreen hedges on a turnkey basis."
+    },
+    "service3": {
+      "title": "Dendrologist Consultation",
+      "desc": "Diagnosis of plant diseases, selection of proper fertilizers, and creation of a year-round care map."
+    }
+  },
+  "footer": {
+    "benefits": {
+      "rare": {
+        "title": "Rare Species",
+        "desc": "We specialize in rare and valuable species from all over the world."
+      },
+      "care": {
+        "title": "Grown with Care",
+        "desc": "Each tree is grown in open ground with close attention to detail."
+      },
+      "quality": {
+        "title": "Quality & Health",
+        "desc": "We guarantee the excellent survival rate of every plant."
+      },
+      "delivery": {
+        "title": "Delivery Across Ukraine",
+        "desc": "We will carefully pack and deliver to any corner of the country."
+      }
+    },
+    "aboutText": "Our nursery is a place where rare coniferous trees are grown with love and respect for nature.",
+    "menuTitle": "Information",
+    "menuArticles": "Articles",
+    "contactsTitle": "Contacts",
+    "workHours": "Mon–Sat: 11:00 AM — 6:00 PM"
+  },
+  "hero": {
+      "titleLine1": "Rare Conifers",
+      "titleLine2": "for Future Generations",
+      "descriptionLine1": "We cultivate rare and valuable species of coniferous trees with love for nature and close attention to detail.",
+      "descriptionLine2": "Each tree is a part of your legacy."
+    },
+    "subcategories": {
+    "Сосновые": "Pine family",
+    "Араукариевые": "Araucaria family",
+    "Кипарисовые": "Cypress family",
+    "Сциадопитисовые": "Sciadopitys family",
+    "Тисовые": "Yew family",
+    "Декоративные": "Ornamental",
+    "Плодовые": "Fruit trees",
+    "Комнатные": "Indoor plants",
+    "Лианы": "Lianas",
+    "Семена": "Seeds"
+  },
+  "backToArticles": "Back to articles",
+  "readMore": "Read more →",
+  "articleDetail": {
+    "loading": "Loading the wisdom of the ages... 🌲",
+    "backToGrid": "Back to articles"
+},
+"copyright": "All Rights Reserved."
+  }

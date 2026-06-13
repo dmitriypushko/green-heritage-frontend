@@ -1,0 +1,213 @@
+.form {
+  padding: 35px; // Чуть увеличили внутренний паддинг для «воздуха»
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); // Сделали тень мягче и современнее
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; // Увеличили шаг между инпутами для читаемости
+  width: 100%;
+  margin: 20px auto 0 auto; // Центрирует форму горизонтально, если родитель позволяет
+  background-color: #ffffff;
+  box-sizing: border-box;
+
+  h3 { 
+    margin: 0 0 10px 0; 
+    color: #2d3a34; 
+    font-size: 1.3rem;
+    text-align: center; // Заголовок формы теперь красиво по центру
+  }
+
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    position: relative; // Чтобы дропдаун городов позиционировался четко под инпутом
+  
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a5568; // Чуть более мягкий темный цвет
+      text-align: left; // Лейблы всегда аккуратно слева
+    }
+  
+    input, .select {
+      width: 100%;
+      height: 46px; // Слегка увеличили высоту для удобства тапа/клика
+      padding: 0 14px;
+      font-size: 0.95rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px; // Чуть увеличили скругление
+      outline: none;
+      box-sizing: border-box;
+      font-family: inherit;
+      color: #2d3748;
+      transition: all 0.2s ease;
+  
+      &:focus {
+        border-color: #2d3a34;
+        box-shadow: 0 0 0 3px rgba(45, 58, 52, 0.1); // Приятное свечение при фокусе
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 4px); // Сместили чуть ниже инпута
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+    z-index: 100;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+    li {
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #2d3748;
+      transition: background-color 0.2s;
+  
+      &:hover {
+        background-color: #f7fafc;
+        color: #2d3a34;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .submitBtn {
+    width: 100%;
+    height: 48px;
+    background-color: #2d3a34;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.2s ease;
+  
+    &:hover:not(:disabled) {
+      background-color: #1e2723;
+      transform: translateY(-1px); // Эффект приподнимания кнопки при наведении
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  
+    &:disabled {
+      background-color: #cbd5e0;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.paymentGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // Фиксированный шаг между радио-кнопками
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+
+  .groupLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 4px; // Уменьшили, чтобы gap группы не делал огромную дыру
+    text-align: left;
+  }
+}
+
+.radioOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #2d3a34;
+    background-color: #f8fafc;
+  }
+
+  input[type="radio"] {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #2d3a34;
+    width: 18px;
+    height: 18px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+
+    strong {
+      font-size: 0.95rem;
+      color: #2d3a34;
+      font-weight: 600;
+    }
+
+    span {
+      font-size: 0.8rem;
+      color: #718096;
+      line-height: 1.4;
+    }
+  }
+}
+
+.termsGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 0 4px;
+
+  input[type="checkbox"] {
+    margin-top: 4px;
+    accent-color: #2d3a34; // Возвращаем наш фирменный зеленый для самой галочки при клике
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  label {
+    font-size: 1rem; // Оставляем крупным и заметным
+    font-weight: 500;
+    font-style: italic; // Оставляем курсив для акцента
+    color: #2d3436; // Спокойный, глубокий черный цвет
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+
+    a {
+      color: #2d3a34; // Ссылки выделяем нашим красивым темно-зеленым цветом
+      text-decoration: underline;
+      font-weight: 700; // Делаем их жирными, чтобы сразу было видно, куда кликать
+
+      &:hover {
+        color: #1e2723; // При наведении ссылка станет еще темнее
+      }
+    }
+  }
+}

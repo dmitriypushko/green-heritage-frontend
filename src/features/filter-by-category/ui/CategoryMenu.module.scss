@@ -1,0 +1,143 @@
+.menu_container {
+  width: 100%;
+  background-color: #f9f9f7;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  position: relative;
+  z-index: 10; // Должно быть выше, чем z-index у Hero
+  background: white; // Или очень легкий беж, как на макете
+}
+
+.menu_content {
+  max-width: 1400px; // Синхронизируем с шириной хедера
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.category_row {
+  display: flex;
+  align-items: flex-start; // Выравнивание по верхнему краю
+  gap: 30px;
+}
+
+.categories_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.groupLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #072908;// вроде этот цвет попал в макет
+  min-width: 160px; // Фиксированная ширина, чтобы кнопки подкатегорий начинались в один ряд
+  font-weight: 400;
+}
+
+.subList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cat_btn {
+  background: white;
+  border: 1px solid #e8e8e3;;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+  color: #072908;
+  font-family: inherit;
+
+  &:hover {
+    border-color: var(--color-primary-green);
+    color: var(--color-primary-green);
+    background-color: #f0f4f2;
+  }
+
+  &.active {
+    
+    background-color: var(--color-primary-green);
+    border-color: var(--color-primary-green);
+    color: #ffffff;
+  }
+}
+
+.all_btn {
+  @extend .cat_btn;
+  height: fit-content; // Чтобы не растягивалась
+  padding: 10px 20px;
+  font-weight: 600;
+  background-color: var(--color-primary-green);
+  color: white;
+  border: none;
+
+  &.active {
+    background-color: #003625; // Еще темнее, когда активно
+  }
+}
+
+@media (max-width: 768px) {
+  .menu_container {
+    padding: 10px 0;
+  }
+
+  .menu_content {
+    padding: 0 15px;
+  }
+
+  .category_row {
+    flex-direction: column; // Выстраиваем главную кнопку и группы вертикально
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .all_btn {
+    width: 100%; // Кнопка "Все деревья" на всю ширину мобилки
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .categories_wrapper {
+    gap: 20px;
+  }
+
+  .group {
+    flex-direction: column; // Заголовок ("Хвойные") теперь НАД кнопками, а не слева
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .groupLabel {
+    min-width: none; // Сбрасываем фиксированную ширину хедера хвойных
+    font-size: 0.75rem;
+  }
+
+  .subList {
+    width: 100%;
+    gap: 6px;
+    
+    // Опционально: можно сделать горизонтальный скролл для кнопок, если их станет много:
+    // overflow-x: auto;
+    // flex-wrap: nowrap;
+    // padding-bottom: 5px;
+  }
+
+  .cat_btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}

@@ -1,0 +1,230 @@
+/* Общие контейнеры */
+.main-header {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; // Расстояние между лого/кнопками и меню категорий
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02); // Совсем легкая тень
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px; // Ограничиваем ширину, чтобы на широких мониторах элементы не разлетались
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Левая часть: Лого */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  .header-logo {
+    height: 115px; // Чуть уменьшим, чтобы было аккуратнее как на макете
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    &:hover { transform: scale(1.02); }
+  }
+}
+
+/* Правая часть: Управление */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-right: 20px; // Дополнительный отступ справа, чтобы отодвинуть от края
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .cart-link {
+    background-color: var(--color-primary-green);
+    color: white !important; // Чтобы перебить дефолтные ссылки
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.99rem;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; // Чтобы текст не переносился
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+
+  .clear-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    
+    &:hover {
+      background-color: #aad7bb;
+      border-color:#bbb;
+    }
+  }
+}
+
+/* Языки */
+.lang-switcher {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+
+  .lang-btn {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    padding: 2px 5px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    
+    &.active {
+      color: var(--color-primary-green);
+      font-weight: 700;
+      border-bottom: 2px solid var(--color-primary-green);
+    }
+    
+    &:hover {
+      color: var(--color-primary-green);
+    }
+  }
+}
+
+  .sort-select {
+    padding: 8px 12px;
+    border: 1px solid var(--color-accent-green);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--color-primary-green);
+    font-family: var(--font-main);
+    cursor: pointer;
+    margin-bottom: 20px;
+    outline: none;
+  
+    &:hover {
+      border-color: var(--color-primary-green);
+    }
+  }
+
+  .catalog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Выравнивает флекс-элементы строго по центру их общей высоты
+    gap: 20px;
+    margin: 35px auto 20px auto; // Четкие внешние отступы панели
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box; // Чтобы паддинги не раздували ширину
+  }
+  
+  .search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    height: 44px; 
+    margin: 0; // На всякий случай обнуляем марджины
+    display: flex; // Делаем флексом, чтобы инпут внутри сел идеально
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 100%;
+    height: 100%; 
+    padding: 0 35px 0 15px; 
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-family: var(--font-main);
+    margin: 0; // Убираем любые дефолтные марджины браузера
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  
+    &:focus {
+      border-color: #2d3a34;
+    }
+  }
+  
+  .search-clear-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
+    &:hover {
+      color: #333;
+    }
+  }
+  
+  .sort-select {
+    height: 44px; 
+    padding: 0 15px; 
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    color: var(--color-text-main, #2d3a34);
+    font-family: var(--font-main);
+    cursor: pointer;
+    outline: none;
+    margin: 0; // !!! КРИТИЧЕСКИ ВАЖНО: сбрасываем тот самый старый margin-bottom!
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    
+    &:focus, &:hover {
+      border-color: #2d3a34;
+    }
+  }
+  
+  /* Адаптив: на мобилках выстраиваем их красиво друг под другом */
+  @media (max-width: 600px) {
+    .catalog-controls {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 20px;
+      gap: 15px;
+    }
+    .search-wrapper {
+      max-width: 100%;
+    }
+  }
+
+  .plants-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }

@@ -1,0 +1,71 @@
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: inherit;
+    color: #2d3436;
+    line-height: 1.6;
+    box-sizing: border-box;
+  
+    .title {
+      font-size: 2rem;
+      color: #2d3a34; // Твой фирменный зеленый
+      margin-bottom: 8px;
+      text-align: left;
+      font-weight: 700;
+    }
+  
+    .date {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+  }
+  
+  .section {
+    margin-bottom: 35px;
+  
+    h2 {
+      font-size: 1.3rem;
+      color: #2d3a34;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #edf2f1;
+      padding-bottom: 6px;
+      font-weight: 600;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #4a5568;
+      margin-bottom: 12px;
+      text-align: justify; // Ровный книжный текст по ширине
+      
+      strong {
+        color: #2d3a34;
+      }
+    }
+  }
+  
+  .contacts {
+    background-color: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid #2d3a34; // Акцентная зеленая плашка
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  
+    p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      text-align: left; // Тут выравнивание лучше оставить по левому краю
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+  
+      strong {
+        color: #2d3a34;
+      }
+    }
+  }

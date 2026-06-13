@@ -1,0 +1,84 @@
+// src/shared/ui/PlantSkeleton/PlantSkeleton.module.scss
+
+.skeletonCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Чтобы по высоте были как оригинальные карточки
+    padding-bottom: 16px;
+  }
+  
+  // Базовый класс для анимации пульсации
+  .skeleton {
+    background: #e2e8f0; // Базовый светло-серый цвет
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  .image {
+    width: 100%;
+    aspect-ratio: 3 / 4; // Сделай такой же, как у твоих реальных фото
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .infoWrapper {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+  }
+  
+  .badge {
+    width: 40%;
+    height: 16px;
+    border-radius: 4px;
+  }
+  
+  .title {
+    width: 85%;
+    height: 24px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+  
+  .latin {
+    width: 60%;
+    height: 14px;
+    border-radius: 4px;
+  }
+  
+  .footerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; // Прижимаем к низу карточки
+    padding-top: 12px;
+  }
+  
+  .price {
+    width: 30%;
+    height: 20px;
+    border-radius: 4px;
+  }
+  
+  .button {
+    width: 45%;
+    height: 38px;
+    border-radius: 8px;
+  }
+  
+  // Та самая магия плавного мерцания YouTube
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }

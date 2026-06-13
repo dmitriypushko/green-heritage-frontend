@@ -1,0 +1,125 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #1b4d3e; /* Твой фирменный тёмно-зелёный */
+  border: 1px solid rgba(27, 77, 62, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px; /* Скруглённая стильная форма капсулы */
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 24px;
+  font-family: inherit;
+
+  /* Эффект при наведении */
+  &:hover {
+    background-color: #1b4d3e;
+    color: #ffffff;
+    border-color: #1b4d3e;
+    transform: translateX(-4px); /* Кнопка слегка смещается влево, намекая на действие "назад" */
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.15);
+  }
+
+  /* Эффект при клике */
+  &:active {
+    transform: scale(0.96) translateX(-4px);
+  }
+}
+
+.title {
+  color: #1b4d3e;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.intro {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Сетка карточек */
+.articlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Сама карточка */
+.articleCard {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Ограничитель контейнера картинки — теперь железно удержит её! */
+.coverWrapper {
+  width: 100%;
+  height: 220px; 
+  overflow: hidden;
+}
+
+/* Сама картинка превью */
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Аккуратно заполнит 220px без искажений */
+}
+
+/* Текстовый блок внутри карточки */
+.cardInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.articleTitle {
+  font-size: 1.25rem;
+  color: #1b4d3e;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.articleDesc {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  
+  /* Магия обрезания текста на 3-й строке без варнингов */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Стандартное свойство для совместимости */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readMoreBtn {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+

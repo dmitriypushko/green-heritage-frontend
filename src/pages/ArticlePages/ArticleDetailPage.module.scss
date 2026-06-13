@@ -1,0 +1,134 @@
+.articlePage {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 60vh; // Гарантирует, что страница не сожмётся в ноль
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+    display: block; // Чтобы блочные элементы вели себя предсказуемо
+  }
+  
+  .backToBlog {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #1b4d3e; /* Твой благородный зелёный */
+    border: 1px solid rgba(27, 77, 62, 0.25); /* Аккуратная тонкая рамочка */
+    padding: 8px 18px;
+    border-radius: 20px; /* Элегантная рамка-капсула */
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 30px;
+    font-family: inherit;
+  
+    /* Интерактивный ховер */
+    &:hover {
+      background-color: #1b4d3e;
+      color: #ffffff;
+      border-color: #1b4d3e;
+      transform: translateX(-4px); /* Деликатное смещение влево при наведении */
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.12);
+  }
+}
+  
+  .header {
+    margin-bottom: 30px;
+  }
+  
+  .mainTitle {
+    font-size: 2.5rem;
+    color: #1b4d3e; // Твой фирменный тёмно-зелёный
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  
+  .mainCoverContainer {
+    width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .mainCover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .richContent {
+    /* Базовый шрифт и цвет как в карточках товаров */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #333333; /* Мягкий тёмный вместо едкого чёрного */
+    text-align: justify; /* Делает текст по ширине аккуратным, как в книгах */
+  
+    /* Параграфы текста */
+    p {
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+  
+    /* Заголовки внутри статьи */
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1b4d3e; /* Твой фирменный благородный зелёный */
+      margin-top: 45px;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+  
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2c3e50;
+      background-color: #f8faf9; /* Слегка зеленовато-серый нежный фон */
+      padding: 16px 20px;
+      border-left: 4px solid #27ae60; /* Яркий зелёный акцент */
+      border-radius: 0 8px 8px 0;
+      margin: 30px 0;
+      line-height: 1.4;
+    }
+  
+    /* Изображения инфографики внутри текста (твои схемы посадки) */
+    img {
+      display: block;
+      width: 100%;
+      max-width: 750px; /* Чтобы схемы не растягивались на весь экран гигантами */
+      margin: 35px auto; /* Центрируем */
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Легкая тень для объема */
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.01); /* Эффект интерактивности при наведении */
+      }
+    }
+  
+    /* Списки, если будешь использовать */
+    ul, ol {
+      margin-bottom: 25px;
+      padding-left: 25px;
+  
+      li {
+        margin-bottom: 8px;
+        position: relative;
+      }
+    }
+  
+    /* Если из Strapi прилетят цитаты или важные выноски */
+    blockquote {
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #555;
+      border-left: 3px solid #1b4d3e;
+      padding-left: 20px;
+      margin: 30px 0;
+    }
+  }
