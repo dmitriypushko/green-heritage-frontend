@@ -60,7 +60,9 @@ export const usePlantDetailPage = (plants: Plant[]) => {
   const handleBack = () => navigate(-1);
   const handleGoHome = () => navigate('/');
   const handleAddToCart = () => {
-    if (plant) addItem(plant);
+    if (plant && plant.documentId) {
+      addItem(plant.documentId);
+    }
   };
 
   return {
