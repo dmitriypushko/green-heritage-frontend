@@ -125,7 +125,9 @@ export const PlantDetailPage = ({ plants }: PlantDetailPageProps) => {
           {/* Информационный блок */}
           <div className={styles.infoBlock}>
             <div className={styles.header}>
-              <span className={styles.categoryBadge}>{plant.subCategory}</span>
+            <span className={styles.categoryBadge}>
+              {plant.subCategory ? t(`subcategories.${plant.subCategory}`, { defaultValue: plant.subCategory }) : ''}
+            </span>
               <h1 className={styles.title}>{plant.name}</h1>
               <p className={styles.latinName}>{plant.latinName}</p>
             </div>
