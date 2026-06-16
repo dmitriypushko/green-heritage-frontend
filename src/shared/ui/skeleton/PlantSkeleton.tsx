@@ -1,5 +1,5 @@
-
 import styles from './PlantSkeleton.module.scss';
+
 
 export default function PlantSkeleton () {
   return (

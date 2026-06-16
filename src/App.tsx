@@ -135,7 +135,7 @@ function App() {
               {/* Сетка товаров / Скелетоны */}
               {isLoading ? (
                 <div className="plants-grid"> 
-                  {Array.from({ length: 8 }).map((_, index) => (
+                  {Array.from({ length: 16 }).map((_, index) => (
                     <PlantSkeleton key={index} />
                   ))}
                 </div>
