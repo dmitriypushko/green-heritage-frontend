@@ -25,6 +25,8 @@ export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderF
   const { items } = useCartStore(); // Для Strapi оставляем голые ID и количество
   const [isLoading, setIsLoading] = useState(false);
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337';
+
   // Основные поля формы
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -115,12 +117,12 @@ export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderF
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!isFormValid) return;
+    if (!isFormValid || isLoading) return;
 
     setIsLoading(true);
 
     try {
-      const strapiResponse = await fetch('http://localhost:1337/api/orders', {
+      const strapiResponse = await fetch(`${BASE_URL}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
