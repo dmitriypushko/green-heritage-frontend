@@ -21,8 +21,8 @@ type PaymentMethod = 'cod' | 'card';
 
 const PHONE_REGEX = /^(?:\+?38)?(?:0\d{9})$/;
 
-export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderFormProps) => {
-  const { items } = useCartStore(); // Для Strapi оставляем голые ID и количество
+export const useOrderForm = ({ onOrderSuccess, totalPrice}: OrderFormProps) => {
+  const { items } = useCartStore(); 
   const [isLoading, setIsLoading] = useState(false);
 
   const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337';
@@ -115,6 +115,7 @@ export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderF
     fetchWarehouses();
   }, [selectedCityRef]);
 
+  // --- ОТПРАВКА ФОРМЫ ---
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isFormValid || isLoading) return;
@@ -132,8 +133,8 @@ export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderF
             city: selectedCityName,
             warehouse: selectedWarehouse,
             paymentMethod,
-            totalPrice: totalPrice, // Передаем готовую сумму, пришедшую из UI
-            items: items // Strapi получает чистые [{ documentId, quantity }]
+            totalPrice: totalPrice, 
+            items: items 
           }
         })
       });
@@ -144,43 +145,22 @@ export const useOrderForm = ({ onOrderSuccess, totalPrice, itemsReport }: OrderF
         throw new Error('Ошибка при сохранении заказа на бэкенде Strapi');
       }
 
+      console.log('=== Ответ от бэкенда Strapi ===', strapiResult);
+
+      // 🎯 НАДЁЖНЫЙ ПОИСК НОМЕРА ЗАКАЗА В СТРУКТУРЕ STRAPI V5
+      // Наш бэкенд возвращает formattedResponse, где orderNumber лежит на самом верхнем уровне
       const finalOrderNumber = strapiResult?.orderNumber || 
-          strapiResult?.data?.orderNumber || 
-          strapiResult?.data?.id || 
-          `100${152 + (strapiResult?.id || 1)}`;
+                               strapiResult?.data?.orderNumber || 
+                               `100${152 + (strapiResult?.id || strapiResult?.data?.id || 1)}`;
 
-      const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      console.log(`=== Фронтенд успешно зафиксировал номер заказа: №${finalOrderNumber} ===`);
 
-      const paymentText = paymentMethod === 'cod' ? '💵 Наложенный платёж' : '💳 Предоплата на карту';
-
-      // 🎯 ТЕПЕРЬ ПОДСТАВЛЯЕМ НАПРЯМУЮ itemsReport ИЗ ПРОПСОВ ХУКА
-      const telegramMessage = encodeURIComponent(
-        `🌲 *ЗАКАЗ №${finalOrderNumber}: Green Heritage* 🌲\n\n` +
-        `👤 *Покупатель:* ${name.trim()}\n` +
-        `📞 *Телефон:* ${cleanPhone}\n\n` +
-        `📍 *Доставка:* Новая Почта\n` +
-        `🌆 *Город:* ${selectedCityName}\n` +
-        `📦 *Отделение:* ${selectedWarehouse}\n\n` +
-        `💳 *Способ оплаты:* ${paymentText}\n\n` +
-        `🛒 *Состав заказа:*\n${itemsReport}\n\n` + 
-        `💰 *ИТОГО К ОПЛАТЕ:* ${totalPrice} грн`
-      );
-
-      const tgResponse = await fetch(
-        `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}&parse_mode=Markdown`
-      );
-
-      if (tgResponse.ok) {
-        onOrderSuccess(finalOrderNumber);
-      } else {
-        console.warn('Заказ сохранен в Strapi, но пуш в Telegram не улетел.');
-        onOrderSuccess(finalOrderNumber); 
-      }
+      // Вызываем колбэк успешного заказа, передавая сгенерированный сервером номер
+      onOrderSuccess(finalOrderNumber);
 
     } catch (err) {
       console.error(err);
-      alert('Не удалось оформить заказ. Проверьте, запущен ли ваш бэкенд Strapi.');
+      alert('Не удалось оформить заказ. Проверьте соединение с сервером.');
     } finally {
       setIsLoading(false);
     }
