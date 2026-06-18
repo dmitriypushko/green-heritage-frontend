@@ -97,6 +97,10 @@
     "cardDesc": "реквізити будуть надіслані менеджером у Telegram після підтвердження замовлення."
   },
   "detailPage": {
+    "availabilityLabel": "Наявність:",
+    "inStock": "В наявності",
+    "outOfStock": "немає в наявності",
+    "outOfStockButton": "Закінчились",
     "lostInForest": "Рослина загубилася в лісі",
     "returnHome": "Повернутися на головну",
     "backToCatalog": "Назад до каталогу",

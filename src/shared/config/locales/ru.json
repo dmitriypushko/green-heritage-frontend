@@ -97,6 +97,10 @@
     "cardDesc": "реквизиты будут высланы менеджером в Telegram после подтверждения заказа."
   },
   "detailPage": {
+    "availabilityLabel": "Наличие:",
+    "inStock": "В наличии",
+    "outOfStock": "Нет в наличии",
+    "outOfStockButton": "Закончился",
     "lostInForest": "Растение потерялось в лесу",
     "returnHome": "Вернуться на главную",
     "backToCatalog": "Назад к каталогу",

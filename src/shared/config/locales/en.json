@@ -97,6 +97,10 @@
     "cardDesc": "card details will be sent by the manager via Telegram after order confirmation."
   },
   "detailPage": {
+    "availabilityLabel": "Availability:",
+    "inStock": "in stock",
+    "outOfStock": "not available",
+    "outOfStockButton": "the product is out of stock",
     "lostInForest": "The plant got lost in the forest",
     "returnHome": "Return home",
     "backToCatalog": "Back to catalog",

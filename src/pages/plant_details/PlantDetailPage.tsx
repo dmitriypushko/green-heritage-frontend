@@ -15,7 +15,7 @@ interface StrapiImage {
   url: string;
   attributes?: {
     url: string;
-    [key: string]: any; // Для гибкости остальных полей Strapi, если нужно
+    [key: string]: any; 
   };
 }
 
@@ -66,7 +66,7 @@ const ReviewImages = ({ imagesData }: ReviewImagesProps) => {
 };
 
 export const PlantDetailPage = ({ plants }: PlantDetailPageProps) => {
-  const { t } = useTranslation(); // Инициализируем перевод
+  const { t } = useTranslation(); 
 
   const {
     plant,
@@ -89,6 +89,10 @@ export const PlantDetailPage = ({ plants }: PlantDetailPageProps) => {
       </div>
     );
   }
+
+  // Вычисляем наличие на основе поля stock из Strapi
+  // Если поля нет в ответе, по дефолту считаем, что доступно (или ставим 0 для безопасности)
+  const isAvailable = plant.stock !== undefined ? plant.stock > 0 : true;
 
   return (
     <div className={styles.pageWrapper}>
@@ -125,9 +129,9 @@ export const PlantDetailPage = ({ plants }: PlantDetailPageProps) => {
           {/* Информационный блок */}
           <div className={styles.infoBlock}>
             <div className={styles.header}>
-            <span className={styles.categoryBadge}>
-              {plant.subCategory ? t(`subcategories.${plant.subCategory}`, { defaultValue: plant.subCategory }) : ''}
-            </span>
+              <span className={styles.categoryBadge}>
+                {plant.subCategory ? t(`subcategories.${plant.subCategory}`, { defaultValue: plant.subCategory }) : ''}
+              </span>
               <h1 className={styles.title}>{plant.name}</h1>
               <p className={styles.latinName}>{plant.latinName}</p>
             </div>
@@ -135,16 +139,42 @@ export const PlantDetailPage = ({ plants }: PlantDetailPageProps) => {
             <div className={styles.purchaseAction}>
               <div className={styles.priceTag}>
                 <span className={styles.amount}>{plant.price}</span>
-                <span className={styles.currency}>{t('cart.currency')}</span> {/* Переиспользуем валюту из корзины */}
+                <span className={styles.currency}>{t('cart.currency')}</span>
               </div>
               
               <button 
-                className={`${styles.addToCartBtn} ${isAlreadyInCart ? styles.inCart : ''}`}
+                className={`${styles.addToCartBtn} ${isAlreadyInCart ? styles.inCart : ''} ${!isAvailable ? styles.outOfStockBtn : ''}`}
                 onClick={handleAddToCart}
-                disabled={isAlreadyInCart}
+                disabled={isAlreadyInCart || !isAvailable} // Блокируем кнопку, если уже в корзине ИЛИ нет в наличии
               >
-                {isAlreadyInCart ? `✓ ${t('detailPage.inCart')}` : t('detailPage.addToCart')}
+                {/* Динамический текст на кнопке */}
+                {!isAvailable 
+                  ? t('detailPage.outOfStockButton', { defaultValue: 'Закончился' }) 
+                  : isAlreadyInCart 
+                    ? `✓ ${t('detailPage.inCart')}` 
+                    : t('detailPage.addToCart')}
               </button>
+            </div>
+
+            {/* БЛОК НАЛИЧИЯ (как на макете availability_.jpg) */}
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              margin: '0.8rem 0 1.2rem 0',
+              fontSize: '0.95rem',
+              fontWeight: '500'
+            }}>
+              <span style={{ color: '#718096' }}>{t('detailPage.availabilityLabel', { defaultValue: 'Наличие:' })}</span>
+              {isAvailable ? (
+                <span style={{ color: '#2f855a', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <span>✓</span> {t('detailPage.inStock', { defaultValue: 'В наличии' })}
+                </span>
+              ) : (
+                <span style={{ color: '#c53030', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <span>✕</span> {t('detailPage.outOfStock', { defaultValue: 'Нет в наличии' })}
+                </span>
+              )}
             </div>
 
             {plantFeatures && (
