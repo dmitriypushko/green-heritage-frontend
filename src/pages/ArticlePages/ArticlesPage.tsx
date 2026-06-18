@@ -41,8 +41,10 @@ export const ArticlesPage = () => {
         {!isLoading && !error && articles.length > 0 && (
           <div className={styles.articlesGrid}>
             {articles.map((article) => {
-              const coverUrl = article.Cover?.url 
-                ? `${STRAPI_URL}${article.Cover.url}` 
+              // Умная проверка ссылки: если Cloudinary вернул http/https, то STRAPI_URL не приклеиваем
+              const rawUrl = article.Cover?.url;
+              const coverUrl = rawUrl
+                ? (rawUrl.startsWith('http') ? rawUrl : `${STRAPI_URL}${rawUrl}`)
                 : '/placeholder-forest.jpg';
 
               return (

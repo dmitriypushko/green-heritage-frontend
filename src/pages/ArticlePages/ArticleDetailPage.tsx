@@ -28,9 +28,11 @@ export const ArticleDetailPage = () => {
     );
   }
 
-  const mainCoverUrl = article.Cover?.url 
-    ? `${STRAPI_URL}${article.Cover.url}` 
-    : null;
+  // Переносим аккуратно сюда — теперь мы точно знаем, что объект article существует!
+  const rawUrl = article.Cover?.url;
+  const mainImgUrl = rawUrl 
+    ? (rawUrl.startsWith('http') ? rawUrl : `${STRAPI_URL}${rawUrl}`) 
+    : '/placeholder-forest.jpg';
 
   return (
     <article className={styles.articlePage}>
@@ -40,9 +42,9 @@ export const ArticleDetailPage = () => {
 
       <header className={styles.header}>
         <h1 className={styles.mainTitle}>{article.Title}</h1>
-        {mainCoverUrl && (
+        {mainImgUrl && (
           <div className={styles.mainCoverContainer}>
-            <img src={mainCoverUrl} alt={article.Title} className={styles.mainCover} />
+            <img src={mainImgUrl} alt={article.Title} className={styles.mainCover} />
           </div>
         )}
       </header>
