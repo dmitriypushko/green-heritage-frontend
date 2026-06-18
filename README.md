@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# 🌲 Green Heritage — Premium Seedlings E-Commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Green Heritage** — это современная, высокопроизводительная e-commerce платформа для продажи саженцев деревьев (включая редкие хвойные и промышленные породы) с полной поддержкой мультиязычности и автоматизированными бизнес-процессами.
 
-Currently, two official plugins are available:
+Проект разработан с прицелом на максимальную масштабируемость, чистоту архитектуры и готовность к реальной коммерческой эксплуатации.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🏗 Технологический стек & Инфраструктура
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Проект построен на базе современной раздельной архитектуры (Headless / Decoupled CMS + SPA Frontend):
 
-## Expanding the ESLint configuration
+* **Frontend:** React (TypeScript) + Vite — быстрый, типизированный и оптимизированный интерфейс.
+* **Backend / CMS:** Strapi v5 (Node.js) — гибкое управление контентом, динамический Rich Text (Blocks) и локализация.
+* **Database:** Neon (PostgreSQL) — мощная серверлесс-база данных в облаке.
+* **Cloud Storage:** Cloudinary — CDN для хранения, автоматической оптимизации и мгновенной отдачи медиа-контента (решает проблему эфемерной файловой системы бэкенда).
+* **Hosting & CI/CD:**
+    * **Vercel** — деплой фронтенда с настроенным кэшированием и переменными окружения.
+    * **Render** — хостинг бэкенд-сервера Strapi.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📐 Архитектура фронтенда: Feature-Sliced Design (FSD)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Фронтенд-часть спроектирована по методологии **Feature-Sliced Design (FSD)** (или максимально приближена к ней), что гарантирует контролируемую вложенность и отсутствие спагетти-кода:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```text
+src/
+├── app/              # Инициализация приложения (провайдеры, стили, роутинг)
+├── pages/            # Страницы приложения (Catalog, PlantDetail, Articles, ArticleDetail)
+├── widgets/          # Крупные самостоятельные блоки (Header, Footer, ProductGrid)
+├── features/         # Интерактивные фичи (AddToCart, OrderProcessing, LanguageSwitcher)
+├── entities/         # Бизнес-сущности (PlantCard, ArticleCard — логика и отображение)
+├── shared/           # Переиспользуемые хелперы, API-конфиги, UI-кит (Button, Loader)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Ключевые преимущества архитектуры:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    Кастомные хуки: Вся бизнес-логика и fetch/axios запросы полностью изолированы от UI-компонентов (например, useArticles, useArticleDetail, useCart), что облегчает тестирование.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    Умная фильтрация URL: Фронтенд динамически определяет источник медиа-данных (Cloudinary Absolute URL vs Local Relative URL), обеспечивая бесшовный переход между development и production окружениями.
+
+Ключевой функционал:
+🌍 Полная локализация (i18next): Интерфейс и контент динамически адаптируются под три языка (UA / RU / EN). На бэкенде настроен маппинг локалей (например, ua фронтенда на uk в Strapi).
+
+🛒 Продвинутая корзина (Cart Logic): Полностью автономная корзина, работающая на клиенте с синхронизацией состояний.
+
+📦 Управление складскими остатками (Stock Management): Динамическая проверка остатков (stock). При stock: 0 карточка товара автоматически переключается в режим Out of Stock, блокируется кнопка добавления, меняются курсоры и интерфейсные маркеры.
+
+🤖 Telegram Order Automation: Настроена интеграция бэкенд-контроллеров Strapi с Telegram API. При оформлении заказа администратор мгновенно получает структурированное уведомление в чат (состав заказа, контакты, сумма, город и отделение Новой Почты(настроена интеграция с api Новой почты)).
+
+🛡 Безопасность и CORS: Настроены строгие политики CORS на сервере Render для взаимодействия только с доверенным доменом на Vercel.
+
+    Перспективы масштабирования (Интеграция оплат)
+
+Архитектура проекта полностью готова к внедрению платежных шлюзов (LiqPay / Monobank API / Stripe).
+
+    💡 Примечание для инвесторов / заказчиков: Реализация онлайн-оплаты на сайте может быть развернута в кратчайшие сроки (в течение нескольких рабочих дней) при наличии у владельца проекта официально зарегистрированного юридического лица или ФЛП (ФОП) для получения API-ключей эквайринга.
+
+Локальное развертывание
+1. Бэкенд (Strapi)
+cd green-heritage-backend
+npm install
+npm run develop
+Требуется настройка .env (DATABASE_URL для Neon, CLOUDINARY_ параметры, TELEGRAM_BOT_TOKEN).*
+
+2. Фронтенд (React)
+cd green-heritage-frontend
+npm install
+npm run dev
+В файле .env.local необходимо указать VITE_API_URL=http://localhost:1337
