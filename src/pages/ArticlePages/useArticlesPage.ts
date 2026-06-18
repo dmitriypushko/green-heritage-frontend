@@ -14,7 +14,7 @@ export interface Article {
   };
 }
 
-export const STRAPI_URL = 'http://localhost:1337';
+export const STRAPI_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337';
 
 export const useArticles = () => {
   const { t, i18n } = useTranslation();
