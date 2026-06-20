@@ -112,6 +112,8 @@ function App() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-input"
+                    autoComplete="off"
+                    data-lpignore="true"
                   />
                   {searchTerm && (
                     <button className="search-clear-btn" onClick={() => setSearchTerm('')}>✕</button>
